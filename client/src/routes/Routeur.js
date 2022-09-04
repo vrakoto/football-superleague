@@ -9,7 +9,7 @@ import Body from '../components/Body'
 
 import Accueil from '../views/Accueil'
 import Connexion from '../views/Connexion';
-import Players from '../views/Players';
+import LesJoueurs from '../views/LesJoueurs';
 import NotFound from '../views/NotFound'
 
 function Routeur() {
@@ -18,7 +18,7 @@ function Routeur() {
             <Body>
                 <Routes>
                     <Route path="/" element={<Accueil />} />
-                    <Route path="/players" element={<Players />} />
+                    <Route path="/joueurs" element={<LesJoueurs />} />
                     <Route path="/connexion" element={<Connexion />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>

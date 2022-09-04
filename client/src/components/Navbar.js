@@ -26,7 +26,7 @@ function Navbar() {
                             <Link path="/" title="Accueil" />
                         </li>
                         <li className="nav-item">
-                            <Link path="/players" title="Players" />
+                            <Link path="/joueurs" title="Les Joueurs" />
                         </li>
                     </ul>
                     <form className="d-flex" role="search">

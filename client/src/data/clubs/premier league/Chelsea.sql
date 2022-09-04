@@ -1,53 +1,25 @@
-INSERT INTO `joueurs` (`nom`, `prenom`, `pays`, `role`, `ClubNom`) VALUES ('', 'Aaron', 'England', 'Goalkeeper', 'Arsenal');
-INSERT INTO `joueurs` (`nom`, `prenom`, `pays`, `role`, `ClubNom`) VALUES ('', 'Kieran', 'Scotland', 'Defender', 'Arsenal');
-INSERT INTO `joueurs` (`nom`, `prenom`, `pays`, `role`, `ClubNom`) VALUES ('', 'Ben', 'England', 'Defender', 'Arsenal');
-INSERT INTO `joueurs` (`nom`, `prenom`, `pays`, `role`, `ClubNom`) VALUES ('', 'Gabriel', 'Brazil', 'Defender', 'Arsenal');
-INSERT INTO `joueurs` (`nom`, `prenom`, `pays`, `role`, `ClubNom`) VALUES ('', 'Rob', 'England', 'Defender', 'Arsenal');
-INSERT INTO `joueurs` (`nom`, `prenom`, `pays`, `role`, `ClubNom`) VALUES ('', 'Cédric', 'Portugal', 'Defender', 'Arsenal');
-INSERT INTO `joueurs` (`nom`, `prenom`, `pays`, `role`, `ClubNom`) VALUES ('', 'Takehiro', 'Japan', 'Defender', 'Arsenal');
-INSERT INTO `joueurs` (`nom`, `prenom`, `pays`, `role`, `ClubNom`) VALUES ('', 'Thomas', 'Ghana', 'Midfielder', 'Arsenal');
-INSERT INTO `joueurs` (`nom`, `prenom`, `pays`, `role`, `ClubNom`) VALUES ('', 'Bukayo', 'England', 'Midfielder', 'Arsenal');
-INSERT INTO `joueurs` (`nom`, `prenom`, `pays`, `role`, `ClubNom`) VALUES ('', 'Martin', 'Norway', 'Midfielder', 'Arsenal');
-INSERT INTO `joueurs` (`nom`, `prenom`, `pays`, `role`, `ClubNom`) VALUES (' Rowe', 'Emile', 'England', 'Midfielder', 'Arsenal');
-INSERT INTO `joueurs` (`nom`, `prenom`, `pays`, `role`, `ClubNom`) VALUES (' Lokonga', 'Albert', 'Belgium', 'Midfielder', 'Arsenal');
-INSERT INTO `joueurs` (`nom`, `prenom`, `pays`, `role`, `ClubNom`) VALUES ('', 'Mohamed', 'Egypt', 'Midfielder', 'Arsenal');
-INSERT INTO `joueurs` (`nom`, `prenom`, `pays`, `role`, `ClubNom`) VALUES ('', 'Granit', 'Switzerland', 'Midfielder', 'Arsenal');
-INSERT INTO `joueurs` (`nom`, `prenom`, `pays`, `role`, `ClubNom`) VALUES ('', 'Eddie', 'England', 'Forward', 'Arsenal');
-INSERT INTO `joueurs` (`nom`, `prenom`, `pays`, `role`, `ClubNom`) VALUES ('', 'Gabriel', 'Brazil', 'Forward', 'Arsenal');
-INSERT INTO `joueurs` (`nom`, `prenom`, `pays`, `role`, `ClubNom`) VALUES (' Vinicius', 'Marquinhos', 'Brazil', 'Forward', 'Arsenal');
-INSERT INTO `joueurs` (`nom`, `prenom`, `pays`, `role`, `ClubNom`) VALUES ('', 'Fábio', 'Portugal', 'Midfielder', 'Arsenal');
-INSERT INTO `joueurs` (`nom`, `prenom`, `pays`, `role`, `ClubNom`) VALUES ('', 'William', 'France', 'Defender', 'Arsenal');
-INSERT INTO `joueurs` (`nom`, `prenom`, `pays`, `role`, `ClubNom`) VALUES ('', 'Gabriel', 'Brazil', 'Forward', 'Arsenal');
-INSERT INTO `joueurs` (`nom`, `prenom`, `pays`, `role`, `ClubNom`) VALUES ('', 'Matt', 'United', 'Goalkeeper', 'Arsenal');
-INSERT INTO `joueurs` (`nom`, `prenom`, `pays`, `role`, `ClubNom`) VALUES ('', 'Reiss', 'England', 'Forward', 'Arsenal');
-INSERT INTO `joueurs` (`nom`, `prenom`, `pays`, `role`, `ClubNom`) VALUES ('', 'Oleksandr', 'Ukraine', 'Midfielder', 'Arsenal');
-INSERT INTO `joueurs` (`nom`, `prenom`, `pays`, `role`, `ClubNom`) VALUES ('', 'Matthew', 'England', 'Midfielder', 'Arsenal');
-INSERT INTO `joueurs` (`nom`, `prenom`, `pays`, `role`, `ClubNom`) VALUES ('', 'Matthew', 'England', 'Midfielder', 'Arsenal');
-INSERT INTO `joueurs` (`nom`, `prenom`, `pays`, `role`, `ClubNom`) VALUES ('', 'Matthew', 'England', 'Midfielder', 'Arsenal');
-
-Kepa Arrizabalaga
-Édouard Mendy
-Thiago Silva
-Reece James
-César Azpilicueta
-Jorginho
-N'Golo Kanté
-Mateo Kovacic
-Christian Pulisic
-Ruben Loftus-Cheek
-Mason Mount
-Hakim Ziyech
-Kai Havertz
-Conor Gallagher
-Armando Broja
-Raheem Sterling
-Kalidou Koulibaly
-Carney Chukwuemeka
-Marc Cucurella
-Cesare Casadei
-Marcus Bettinelli
-Trevoh Chalobah
-Ben Chilwell
-Wesley Fofana
-Pierre-Emerick Aubameyang
-Denis Zakaria
+INSERT INTO `joueurs`(`nom`, `prenom`, `pays`, `role`, `ClubId`) VALUES ('Mendy', 'Édouard', 'Senegal', 'Goalkeeper', 'cfc');
+INSERT INTO `joueurs`(`nom`, `prenom`, `pays`, `role`, `ClubId`) VALUES ('Silva', 'Thiago', 'Brasil', 'Defender', 'cfc');
+INSERT INTO `joueurs`(`nom`, `prenom`, `pays`, `role`, `ClubId`) VALUES ('James', 'Reece', 'England', 'Defender', 'cfc');
+INSERT INTO `joueurs`(`nom`, `prenom`, `pays`, `role`, `ClubId`) VALUES ('Azpilicueta', '', 'Spain', 'Defender', 'cfc');
+INSERT INTO `joueurs`(`nom`, `prenom`, `pays`, `role`, `ClubId`) VALUES ('Jorginho', '', 'Italy', 'Midfielder', 'cfc');
+INSERT INTO `joueurs`(`nom`, `prenom`, `pays`, `role`, `ClubId`) VALUES ('Kanté', "N'Golo", 'France', 'Midfielder', 'cfc');
+INSERT INTO `joueurs`(`nom`, `prenom`, `pays`, `role`, `ClubId`) VALUES ('Kovacic', 'Mateo', 'Croatia', 'Midfielder', 'cfc');
+INSERT INTO `joueurs`(`nom`, `prenom`, `pays`, `role`, `ClubId`) VALUES ('Pulisic', 'Christian', 'United States', 'Midfielder', 'cfc');
+INSERT INTO `joueurs`(`nom`, `prenom`, `pays`, `role`, `ClubId`) VALUES ('Cheek', 'Ruben Loftus', 'England', 'Midfielder', 'cfc');
+INSERT INTO `joueurs`(`nom`, `prenom`, `pays`, `role`, `ClubId`) VALUES ('Mount', 'Mason', 'England', 'Midfielder', 'cfc');
+INSERT INTO `joueurs`(`nom`, `prenom`, `pays`, `role`, `ClubId`) VALUES ('Ziyech', 'Hakim', 'Morocco', 'Midfielder', 'cfc');
+INSERT INTO `joueurs`(`nom`, `prenom`, `pays`, `role`, `ClubId`) VALUES ('Havertz', 'Kai', 'Germany', 'Midfielder', 'cfc');
+INSERT INTO `joueurs`(`nom`, `prenom`, `pays`, `role`, `ClubId`) VALUES ('Gallagher', 'Conor', 'England', 'Midfielder', 'cfc');
+INSERT INTO `joueurs`(`nom`, `prenom`, `pays`, `role`, `ClubId`) VALUES ('Broja', 'Armando', 'Albania', 'Forward', 'cfc');
+INSERT INTO `joueurs`(`nom`, `prenom`, `pays`, `role`, `ClubId`) VALUES ('Sterling', 'Raheem', 'England', 'Forward', 'cfc');
+INSERT INTO `joueurs`(`nom`, `prenom`, `pays`, `role`, `ClubId`) VALUES ('Koulibaly', 'Kalidou', 'Senegal', 'Defender', 'cfc');
+INSERT INTO `joueurs`(`nom`, `prenom`, `pays`, `role`, `ClubId`) VALUES ('Chukwuemeka', 'Carney', 'England', 'Midfielder', 'cfc');
+INSERT INTO `joueurs`(`nom`, `prenom`, `pays`, `role`, `ClubId`) VALUES ('Cucurella', 'Marc', 'Spain', 'Defender', 'cfc');
+INSERT INTO `joueurs`(`nom`, `prenom`, `pays`, `role`, `ClubId`) VALUES ('Casadei', 'Cesare', 'Italy', 'Midfielder', 'cfc');
+INSERT INTO `joueurs`(`nom`, `prenom`, `pays`, `role`, `ClubId`) VALUES ('Bettinelli', 'Marcus', 'England', 'Goalkeeper', 'cfc');
+INSERT INTO `joueurs`(`nom`, `prenom`, `pays`, `role`, `ClubId`) VALUES ('Chalobah', 'Trevoh', 'England', 'Defender', 'cfc');
+INSERT INTO `joueurs`(`nom`, `prenom`, `pays`, `role`, `ClubId`) VALUES ('Chilwell', 'Ben', 'England', 'Defender', 'cfc');
+INSERT INTO `joueurs`(`nom`, `prenom`, `pays`, `role`, `ClubId`) VALUES ('Fofana', 'Wesley', 'France', 'Defender', 'cfc');
+INSERT INTO `joueurs`(`nom`, `prenom`, `pays`, `role`, `ClubId`) VALUES ('Aubameyang', 'Pierre-Emerick', 'Gabon', 'Forward', 'cfc');
+INSERT INTO `joueurs`(`nom`, `prenom`, `pays`, `role`, `ClubId`) VALUES ('Zakaria', 'Denis', 'Switzerland', 'Midfielder', 'cfc');

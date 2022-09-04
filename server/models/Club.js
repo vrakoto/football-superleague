@@ -4,9 +4,13 @@ const Joueur = require('./Joueur');
 
 class Club extends Model {}
 Club.init({
+    id: {
+        type: DataTypes.STRING(10),
+        primaryKey: true
+    },
     nom: {
         type: DataTypes.STRING(30),
-        primaryKey: true
+        allowNull: false
     }
 },
     {
