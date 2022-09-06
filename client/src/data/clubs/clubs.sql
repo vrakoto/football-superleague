@@ -1,35 +1,37 @@
 -- Premier League
-INSERT INTO `clubs`(`id`, `nom`) VALUES ('afc', 'Arsenal');
-INSERT INTO `clubs`(`id`, `nom`) VALUES ('cfc', 'Chelsea');
-INSERT INTO `clubs`(`id`, `nom`) VALUES ('lfc', 'Liverpool');
-INSERT INTO `clubs`(`id`, `nom`) VALUES ('mcfc', 'Manchester City');
-INSERT INTO `clubs`(`id`, `nom`) VALUES ('mufc', 'Manchester United');
-INSERT INTO `clubs`(`id`, `nom`) VALUES ('thfc', 'Tottenham Hotspur');
+INSERT INTO `clubs`(`id`, `nom`)
+VALUES
+('afc', 'Arsenal'),
+('cfc', 'Chelsea'),
+('lfc', 'Liverpool'),
+('mcfc', 'Manchester City'),
+('mufc', 'Manchester United'),
+('thfc', 'Tottenham Hotspur'),
 
 -- La Liga
-INSERT INTO `clubs`(`id`, `nom`) VALUES ('rma', 'Real Madrid');
-INSERT INTO `clubs`(`id`, `nom`) VALUES ('fcb', 'FC Barcelona');
-INSERT INTO `clubs`(`id`, `nom`) VALUES ('atm', 'Atlético Madrid');
-INSERT INTO `clubs`(`id`, `nom`) VALUES ('sv','Séville');
-INSERT INTO `clubs`(`id`, `nom`) VALUES ('vil', 'Villarreal');
+('rma', 'Real Madrid'),
+('fcb', 'FC Barcelona'),
+('atm', 'Atlético Madrid'),
+('sv','Séville'),
+('vil', 'Villarreal'),
 
 -- Ligue 1
-INSERT INTO `clubs`(`id`, `nom`) VALUES ('psg', 'PSG');
-INSERT INTO `clubs`(`id`, `nom`) VALUES ('om', 'Olympique de Marseille');
-INSERT INTO `clubs`(`id`, `nom`) VALUES ('monaco', 'Monaco');
-INSERT INTO `clubs`(`id`, `nom`) VALUES ('nice', 'Nice');
-INSERT INTO `clubs`(`id`, `nom`) VALUES ('lyon', 'Lyon');
+('psg', 'PSG'),
+('om', 'Olympique de Marseille'),
+('monaco', 'Monaco'),
+('nice', 'Nice'),
+('lyon', 'Lyon'),
 
 -- Bundesliga
-INSERT INTO `clubs`(`id`, `nom`) VALUES ('bayern', 'Bayern');
-INSERT INTO `clubs`(`id`, `nom`) VALUES ('bvb', 'Dortmund');
-INSERT INTO `clubs`(`id`, `nom`) VALUES ('rblei', 'RB Leipzig');
-INSERT INTO `clubs`(`id`, `nom`) VALUES ('leverkusen', 'Leverkusen');
-INSERT INTO `clubs`(`id`, `nom`) VALUES ('wolfsburg', 'Wolfsbourg');
+('bayern', 'Bayern'),
+('bvb', 'Dortmund'),
+('rblei', 'RB Leipzig'),
+('leverkusen', 'Leverkusen'),
+('wolfsburg', 'Wolfsbourg'),
 
 -- Série A
-INSERT INTO `clubs`(`id`, `nom`) VALUES ('juv', 'Juventus');
-INSERT INTO `clubs`(`id`, `nom`) VALUES ('inter', 'Inter Milan');
-INSERT INTO `clubs`(`id`, `nom`) VALUES ('acm', 'AC Milan');
-INSERT INTO `clubs`(`id`, `nom`) VALUES ('naples', 'Naples');
-INSERT INTO `clubs`(`id`, `nom`) VALUES ('atl', 'Atalanta');
+('juv', 'Juventus'),
+('inter', 'Inter Milan'),
+('acm', 'AC Milan'),
+('naples', 'Naples'),
+('atl', 'Atalanta')

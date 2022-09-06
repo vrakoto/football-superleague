@@ -2,20 +2,22 @@ import { useEffect, useRef, useState } from 'react'
 import '../css/players.css'
 import axios from 'axios'
 import Table from '../components/lesJoueurs/Table';
+import Filter from '../components/lesJoueurs/DropdownFilter';
 
 function Players() {
-    const [openedFilter, setOpenedFilter] = useState('')
-    const divFilter = useRef();
-
-    const initialFilterClub = {id: 'all', nom: 'Tous les Clubs'}
-    const [currentFilterClub, setCurrentFilterClub] = useState(initialFilterClub)
+    const refFilterClub = useRef()
+    const refFilterPosition = useRef()
+    const refFilterPays = useRef()
 
     const [lesClubs, setLesClubs] = useState({})
+    const [lesPositions, setLesPositions] = useState({})
+    const [lesPays, setLesPays] = useState({})
 
     const [lesJoueurs, setLesJoueurs] = useState([])
     const [previousJoueurs, setPreviousJoueurs] = useState([]) // Conserve l'état des derniers joueurs avant d'entamer une recherche
     const [searchPlayer, setSearchPlayer] = useState('')
 
+    const [filters, setFilters] = useState({idClub: 'all', club: 'Afficher TOUT', idPosition: 'all', position: 'Afficher TOUT', idPays: 'all', pays: 'Afficher TOUT'})
 
     const getLesClubs = async () => {
         axios.get('/clubs').then((response) => {
@@ -25,8 +27,24 @@ function Players() {
         })
     }
 
+    const getLesPositions = async () => {
+        axios.get('/positions').then((response) => {
+            setLesPositions(response.data)
+        }).catch((err) => {
+            console.log(err);
+        })
+    }
+
+    const getLesPays = async () => {
+        axios.get('/pays').then((response) => {
+            setLesPays(response.data)
+        }).catch((err) => {
+            console.log(err);
+        })
+    }
+
     const getLesJoueursDuClub = async () => {
-        axios.get('/joueurs', {params: {club: currentFilterClub.id}}).then((response) => {
+        axios.get('/joueurs', { params: filters }).then((response) => {
             setLesJoueurs(response.data)
             setPreviousJoueurs(response.data)
         }).catch((err) => {
@@ -38,7 +56,8 @@ function Players() {
     useEffect(() => {
         return () => {
             getLesClubs();
-            getLesJoueursDuClub();
+            getLesPositions();
+            getLesPays();
         }
     }, [])
 
@@ -47,23 +66,10 @@ function Players() {
         setLesJoueurs(searchPlayerResult())
     }, [searchPlayer])
 
-    // Détecte les clique à l'extérieur pour fermer le dropdown
+    // Update la liste des joueurs à chaque fois qu'un filtre est appliqué par l'utilisateur
     useEffect(() => {
-        const handleClickOutside = e => {
-            if (!divFilter.current.contains(e.target)) {
-                setOpenedFilter('')
-            }
-        };
-
-        document.addEventListener('mousedown', handleClickOutside);
-        return () => document.removeEventListener('mousedown', handleClickOutside);
-    }, [openedFilter])
-
-
-    // Filtrer les joueurs par club
-    useEffect(() => {
-        getLesJoueursDuClub();
-    }, [currentFilterClub])
+        getLesJoueursDuClub()
+    }, [filters])
 
     const searchPlayerResult = () => {
         const results = previousJoueurs.filter((joueur) => joueur.nom.toLowerCase().includes(searchPlayer.toLowerCase()) || joueur.prenom.toLowerCase().includes(searchPlayer.toLowerCase()))
@@ -81,32 +87,48 @@ function Players() {
 
             <div className="container mt-5">
 
-                <div className="filters border d-flex">
+                <div className="filters d-flex justify-content-center">
 
-                    <div ref={divFilter} className="filterClub" onClick={() => setOpenedFilter('club')}>
-                        <div className="text-center">
-                            <span className="form-text filterText"><i>Filtrer par club</i></span>
-                            <p className="filterClub-club">{currentFilterClub.nom}</p>
-                        </div>
+                    <Filter
+                        sonRef={refFilterClub}
+                        nameFilter="club"
+                        id="idClub"
+                        columnFilterInDB="nom"
+                        selectedDropdownValue={filters.club}
+                        contentDropdown={lesClubs}
+                        filters={filters}
+                        setFilters={setFilters}
+                    />
 
-                        {(openedFilter === 'club') ? (
-                            <ul className="listClubs">
-                                <li onClick={() => setCurrentFilterClub(initialFilterClub)}>{initialFilterClub.nom}</li>
-                                <hr />
-                                {(lesClubs.length > 0) ? (
-                                    lesClubs.map((club, key) => (<li key={key} onClick={() => setCurrentFilterClub({id: club.id, nom: club.nom})}>{club.nom}</li>))
-                                ) : 'Aucun club'}
-                            </ul>
-                        ) : ''}
-                    </div>
+                    <Filter
+                        sonRef={refFilterPosition}
+                        nameFilter="position"
+                        id="idPosition"
+                        columnFilterInDB="nom"
+                        selectedDropdownValue={filters.position}
+                        contentDropdown={lesPositions}
+                        filters={filters}
+                        setFilters={setFilters}
+                    />
+
+                    <Filter
+                        sonRef={refFilterPays}
+                        nameFilter="pays"
+                        id="idPays"
+                        columnFilterInDB="nom"
+                        selectedDropdownValue={filters.pays}
+                        contentDropdown={lesPays}
+                        filters={filters}
+                        setFilters={setFilters}
+                    />
 
                 </div>
 
-                    <div className="mt-5">
-                        {(lesJoueurs.length > 0) ? (
-                            <Table data={lesJoueurs} />
-                        ) : 'Aucun joueur'}
-                    </div>
+                <div className="mt-5">
+                    {(lesJoueurs.length > 0) ? (
+                        <Table datas={lesJoueurs} />
+                    ) : 'Aucun joueur'}
+                </div>
             </div>
         </>
     )

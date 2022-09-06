@@ -1,10 +1,11 @@
 import { getClubLogos } from "../../img/PL/exportLogos";
+import '../../css/components/tableJoueurs.css'
 
-function Table({data}) {
+
+function Table({datas}) {
     const images = getClubLogos(require.context('../../img/PL/', false, /\.(png|jpe?g|svg)$/));
-    
     return (
-        <table className="table">
+        <table className="table text-center">
             <thead>
                 <tr className="table-secondary">
                     <th scope="col">Joueur</th>
@@ -14,14 +15,14 @@ function Table({data}) {
                 </tr>
             </thead>
             <tbody>
-                {data.map((joueur, key) => (
+                {datas.map((joueur, key) =>
                     <tr key={key} className="leJoueur">
-                        <th scope="row">{joueur.prenom + ' ' + joueur.nom}</th>
-                        <td>{joueur.role}</td>
+                        <th scope="row">{joueur.prenom + ' ' + joueur.nom.toUpperCase()}</th>
+                        <th>{joueur.Position.nom}</th>
                         <td><img src={images[joueur.ClubId + '.png']} alt={joueur.ClubId} /></td>
-                        <td>{joueur.pays}</td>
+                        <td>{joueur.Pay.nom}</td>
                     </tr>
-                ))}
+                )}
             </tbody>
         </table>
     )

@@ -1,22 +1,22 @@
 const { DataTypes, Model } = require('sequelize');
 const {sequelize} = require('../db/config');
 
-class Club extends Model {}
-Club.init({
+class Pays extends Model {}
+Pays.init({
     id: {
-        type: DataTypes.STRING(10),
+        type: DataTypes.STRING(2),
         primaryKey: true
     },
     nom: {
-        type: DataTypes.STRING(30),
+        type: DataTypes.STRING(35),
         allowNull: false
     }
 },
     {
         timestamps: false,
         sequelize,
-        modelName: 'Club'
+        modelName: 'Pays'
     }
 )
 
-module.exports = Club;
+module.exports = Pays;

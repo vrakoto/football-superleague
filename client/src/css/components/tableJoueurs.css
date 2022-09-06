@@ -1,0 +1,11 @@
+.leJoueur {
+    height: 60px;
+    vertical-align: middle;
+}
+
+.table-secondary th {
+    cursor: pointer;
+}
+.table-secondary span {
+    padding: 15px;
+}
