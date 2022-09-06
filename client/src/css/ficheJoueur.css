@@ -1,3 +1,40 @@
-.leJoueur {
-    background: linear-gradient(90deg,#fff,#f1f1f1);
+.resultPlayer {
+    animation: swap 1s forwards;
+    margin: 0;
+}
+
+@keyframes swap {
+    0%   {width: 0; opacity: 0;}
+    100% {width: 100%}
+}
+
+.resultPlayer2 {
+    animation: swap2 2s forwards;
+}
+
+@keyframes swap2 {
+    0%   {transform: translateX(-100%); opacity: 0;}
+    100% {transform: translateX(0); opacity: 1;}
+}
+
+.circleClubLogo {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    background: #fff;
+    transition: .2s;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,.15);
+    cursor: pointer;
+}
+.circleClubLogo:hover {
+   background-color: grey; 
+}
+
+.circleClubLogo img {
+    width: 50%;
+    height: 50%;
 }

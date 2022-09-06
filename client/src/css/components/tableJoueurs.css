@@ -1,6 +1,10 @@
 .leJoueur {
     height: 60px;
     vertical-align: middle;
+    cursor: pointer;
+}
+.leJoueur:hover {
+    color: #FFF;
 }
 
 .table-secondary th {
@@ -8,4 +12,24 @@
 }
 .table-secondary span {
     padding: 15px;
+}
+
+.selectedPlayer {
+    animation: moving 1s forwards;
+}
+
+@keyframes moving {
+    0%   {transform: translateY(0px);}
+    100% { transform: translateX(100%); opacity: 0;}
+}
+
+.test {
+    position: relative;
+    animation: mymove 1.5s;
+    animation-fill-mode: initial;
+}
+
+@keyframes mymove {
+    from {left: 0px;}
+    to {left: 5000px; display: none;}
 }

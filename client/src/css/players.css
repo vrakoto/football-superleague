@@ -1,8 +1,8 @@
 .banner {
     height: 215px;
-    background-color: #37003c;
-    color: #FFF;
     letter-spacing: 2px;
+    color: #FFF;
+    background-color: #37003c;
 }
 .banner h1 {
     font-weight: bold;

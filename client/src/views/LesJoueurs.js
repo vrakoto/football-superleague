@@ -17,7 +17,10 @@ function Players() {
     const [previousJoueurs, setPreviousJoueurs] = useState([]) // Conserve l'état des derniers joueurs avant d'entamer une recherche
     const [searchPlayer, setSearchPlayer] = useState('')
 
-    const [filters, setFilters] = useState({idClub: 'all', club: 'Afficher TOUT', idPosition: 'all', position: 'Afficher TOUT', idPays: 'all', pays: 'Afficher TOUT'})
+    // selected player animation
+    const [swap, setSwap] = useState(false);
+
+    const [filters, setFilters] = useState({ idClub: 'all', club: 'Afficher TOUT', idPosition: 'all', position: 'Afficher TOUT', idPays: 'all', pays: 'Afficher TOUT' })
 
     const getLesClubs = async () => {
         axios.get('/clubs').then((response) => {
@@ -77,10 +80,10 @@ function Players() {
     }
 
     return (
-        <>
+        <div className={swap ? 'selectedPlayer' : ''}>
             <div className="container-fluid d-flex justify-content-center align-items-center banner">
                 <div className="container d-flex content">
-                    <h1>Les Joueurs</h1>
+                    <h1>Les joueurs</h1>
                     <input type="text" className="ms-3 searchPlayer" name="searchingPlayer" onChange={(e) => setSearchPlayer(e.target.value)} placeholder="Rechercher un joueur..." />
                 </div>
             </div>
@@ -126,11 +129,11 @@ function Players() {
 
                 <div className="mt-5">
                     {(lesJoueurs.length > 0) ? (
-                        <Table datas={lesJoueurs} />
+                        <Table datas={lesJoueurs} swap={swap} setSwap={setSwap} />
                     ) : 'Aucun joueur'}
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 
