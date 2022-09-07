@@ -8,9 +8,6 @@ function FicheJoueur() {
     const { state } = useLocation()
     const images = getClubLogos(require.context('../img/PL/', false, /\.(png|jpe?g|svg)$/));
 
-    useEffect(() => {
-        console.log(state);
-    }, [])
     return (
         <div>
             <div className="container-fluid d-flex justify-content-center align-items-center flex-column banner resultPlayer" style={{ backgroundColor: state.BgColor }}>

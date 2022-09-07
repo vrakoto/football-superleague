@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const app = express();
 const functions = require('../functions/auth');
 
 const Joueur = require('../models/Joueur');

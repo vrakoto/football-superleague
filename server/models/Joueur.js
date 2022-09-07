@@ -40,11 +40,14 @@ Joueur.belongsTo(Pays, {foreignKey: {
 Position.hasMany(Joueur, { foreignKey: { allowNull: false } })
 Joueur.belongsTo(Position)
 
-Club.hasMany(Joueur);
+Club.hasMany(Joueur)
 Joueur.belongsTo(Club)
 
+Pays.hasMany(Club)
+Club.belongsTo(Pays, { foreignKey: { allowNull: false } })
+
 /* async function generate() {
-    await sequelize.sync({force: true});
+    await sequelize.sync({alter: true});
 }
 
 generate().then(() => {

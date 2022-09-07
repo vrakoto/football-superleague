@@ -75,8 +75,7 @@ function Players() {
     }, [filters])
 
     const searchPlayerResult = () => {
-        const results = previousJoueurs.filter((joueur) => joueur.nom.toLowerCase().includes(searchPlayer.toLowerCase()) || joueur.prenom.toLowerCase().includes(searchPlayer.toLowerCase()))
-        return results
+        return previousJoueurs.filter((joueur) => joueur.nom.toLowerCase().includes(searchPlayer.toLowerCase()) || joueur.prenom.toLowerCase().includes(searchPlayer.toLowerCase()))
     }
 
     return (
@@ -84,7 +83,7 @@ function Players() {
             <div className="container-fluid d-flex justify-content-center align-items-center banner">
                 <div className="container d-flex content">
                     <h1>Les joueurs</h1>
-                    <input type="text" className="ms-3 searchPlayer" name="searchingPlayer" onChange={(e) => setSearchPlayer(e.target.value)} placeholder="Rechercher un joueur..." />
+                    <input type="text" className="ms-3 bannerSearch" name="searchingPlayer" onChange={(e) => setSearchPlayer(e.target.value)} placeholder="Rechercher un joueur..." />
                 </div>
             </div>
 

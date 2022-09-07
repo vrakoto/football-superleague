@@ -28,6 +28,9 @@ function Navbar() {
                         <li className="nav-item">
                             <Link path="/joueurs" title="Les Joueurs" />
                         </li>
+                        <li className="nav-item">
+                            <Link path="/clubs" title="Les Clubs" />
+                        </li>
                     </ul>
                     <form className="d-flex" role="search">
                         <BtnLink path="/connexion" title="Connexion" className="btn btn-primary mx-2" />

@@ -2,3 +2,15 @@ body {
   /* background-color: #F2F2F2; */
   overflow-x: hidden;
 }
+
+.bannerSearch {
+	color: #fff;
+	border-radius: 32px;
+	box-shadow: 0 1px 12px 0 rgba(0,0,0,.5);
+	background-color: rgba(0,0,0,.5);
+	border-bottom: 0;
+	font-size: 1.5rem;
+	padding: 0 6.5rem 0 2rem; 
+	outline-color: red;
+	border: none;
+}
