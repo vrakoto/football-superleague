@@ -1,6 +1,6 @@
 .animation {
     animation: swap 1s forwards;
-    margin: 0;
+    margin: 0 !important;
 }
 
 @keyframes swap {

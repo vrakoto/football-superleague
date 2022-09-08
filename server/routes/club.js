@@ -5,35 +5,24 @@ const Joueur = require('../models/Joueur');
 const Club = require('../models/Club');
 const Pays = require('../models/Pays');
 
-// Récupère tous les clubs d'un pays
+// Récupère tous les clubs
 router.get('/clubs', async (req, res) => {
-    const {idPays} = req.query
-    let filter = {}
-    if (idPays != 'all') {
-        filter = { where: { PayId: idPays } }
-    }
-
-    await Club.findAll(filter).then((datas) => {
+    await Club.findAll().then((datas) => {
         return res.json(datas)
     }).catch((error) => {
-        if (error) return res.send({error: `Echec lors de la tentative de récupération des clubs pour le pays ${idPays}`})
+        if (error) return res.send({error: `Echec lors de la tentative de récupération des clubs`})
     })
 });
 
 
-// Récupère tous les pays disposant d'au moins un club dans la BDD
-router.get('/pays', async (req, res) => {
-    await Pays.findAll({
-        include: {
-            model: Club,
-            attributes: [],
-            required: true
-        },
-        order: [['nom', 'ASC']]
-    }).then((datas) => {
+// Récupère le club spécifique
+router.get('/club', async (req, res) => {
+    const { idClub } = req.query
+
+    await Club.findByPk(idClub).then((datas) => {
         return res.json(datas)
     }).catch((error) => {
-        if (error) return res.send({error: "Echec lors de la tentative de récupération des pays"})
+        if (error) return res.send({error: `Echec lors de la tentative de récupération du club ${idClub}`})
     })
 });
 

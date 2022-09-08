@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import '../css/players.css'
-import axios from 'axios'
 import Table from '../components/lesJoueurs/Table';
 import Filter from '../components/lesJoueurs/DropdownFilter';
+import Api from '../components/Api';
 
 function Players() {
     const refFilterClub = useRef()
@@ -23,7 +23,7 @@ function Players() {
     const [filters, setFilters] = useState({ idClub: 'all', club: 'Afficher TOUT', idPosition: 'all', position: 'Afficher TOUT', idPays: 'all', pays: 'Afficher TOUT' })
 
     const getLesClubs = async () => {
-        axios.get('/clubs').then((response) => {
+        Api.get('/club/clubs').then((response) => {
             setLesClubs(response.data)
         }).catch((err) => {
             console.log(err);
@@ -31,7 +31,7 @@ function Players() {
     }
 
     const getLesPositions = async () => {
-        axios.get('/positions').then((response) => {
+        Api.get('/position/positions').then((response) => {
             setLesPositions(response.data)
         }).catch((err) => {
             console.log(err);
@@ -39,7 +39,7 @@ function Players() {
     }
 
     const getLesPays = async () => {
-        axios.get('/pays').then((response) => {
+        Api.get('/pays/pays').then((response) => {
             setLesPays(response.data)
         }).catch((err) => {
             console.log(err);
@@ -47,7 +47,7 @@ function Players() {
     }
 
     const getLesJoueursDuClub = async () => {
-        axios.get('/joueurs', { params: filters }).then((response) => {
+        Api.get('/joueur/joueurs', { params: filters }).then((response) => {
             setLesJoueurs(response.data)
             setPreviousJoueurs(response.data)
         }).catch((err) => {

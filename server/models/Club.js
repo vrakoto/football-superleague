@@ -10,6 +10,10 @@ Club.init({
     nom: {
         type: DataTypes.STRING(30),
         allowNull: false
+    },
+    couleur: {
+        type: DataTypes.STRING(15),
+        allowNull: false
     }
 },
     {

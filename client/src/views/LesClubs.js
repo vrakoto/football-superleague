@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import '../css/clubs.css'
-import axios from 'axios'
 import Filter from '../components/lesJoueurs/DropdownFilter';
 import Card from '../components/lesClubs/Card';
+import Api from '../components/Api';
 
 function Players() {
     const refFilterClub = useRef()
@@ -18,7 +18,7 @@ function Players() {
 
 
     const getLesPays = async () => {
-        axios.get('/club/pays').then((response) => {
+        Api.get('/pays/atLeastOneClub').then((response) => {
             setLesPays(response.data)
         }).catch((err) => {
             console.log(err);
@@ -26,7 +26,7 @@ function Players() {
     }
 
     const getLesClubs = async () => {
-        axios.get('/club/clubs', {params: filters}).then((response) => {
+        Api.get('/pays/clubs', {params: filters}).then((response) => {
             setLesClubs(response.data)
             setPreviousClubs(response.data)
         }).catch((err) => {
@@ -84,7 +84,7 @@ function Players() {
 
                 <div className="d-flex flex-wrap justify-content-center mt-5">
                     {(lesClubs.length > 0) && lesClubs.map((club, key) =>
-                        <Card key={key} id={club.id} nom={club.nom} />
+                        <Card key={key} setSwap={setSwap} leClub={club} />
                     )}
                 </div>
             </div>

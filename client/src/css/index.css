@@ -14,3 +14,61 @@ body {
 	outline-color: red;
 	border: none;
 }
+
+.banner.club {
+	height: 330px !important;
+}
+
+
+/* ------------Logo------------ */
+.smallClubLogo {
+	width: 50px;
+    height: 50px;
+}
+
+
+.mediumClubLogo {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    background: #fff;
+    transition: .2s;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,.15);
+    cursor: pointer;
+}
+.mediumClubLogo:hover {
+   background-color: grey; 
+}
+
+.mediumClubLogo img {
+    width: 50%;
+    height: 50%;
+}
+
+
+.bigClubLogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 30px;
+    width: 180px;
+    height: 180px;
+    border-radius: 100%;
+    background: #fff;
+    transition: .2s;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,.15);
+    cursor: pointer;
+}
+.bigClubLogo:hover {
+   background-color: grey; 
+}
+
+.bigClubLogo img {
+    width: 60%;
+    height: 60%;
+}
+/* ------------Fin Logo------------ */
