@@ -1,0 +1,17 @@
+.groupeCard {
+    width: 320px;
+    height: 380px;
+    animation: appear 1s forwards;
+}
+@keyframes appear {
+    0%   { transform: translateX(-100%); opacity: 0;}
+    100% { transform: translateX(0); opacity: 1;}
+}
+
+
+.groupeCard li {
+    cursor: pointer;
+}
+.groupeCard li:hover {
+    color: #FFF;
+}

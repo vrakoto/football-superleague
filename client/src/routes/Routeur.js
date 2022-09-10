@@ -12,6 +12,7 @@ import LesJoueurs from '../views/LesJoueurs';
 import FicheJoueur from '../views/FicheJoueur';
 import LesClubs from '../views/LesClubs';
 import FicheClub from '../views/FicheClub';
+import Simulation from '../views/Simulation';
 import NotFound from '../views/NotFound'
 
 function Routeur() {
@@ -24,6 +25,7 @@ function Routeur() {
                     <Route path="/joueur/:userId" element={<FicheJoueur />} />
                     <Route path="/clubs" element={<LesClubs />} />
                     <Route path="/club/:clubId" element={<FicheClub />} />
+                    <Route path="/simulation" element={<Simulation />} />
                     <Route path="/connexion" element={<Connexion />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>

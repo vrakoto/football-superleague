@@ -1,8 +1,9 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, lazy, Suspense } from 'react'
 import '../css/clubs.css'
-import Filter from '../components/lesJoueurs/DropdownFilter';
-import Card from '../components/lesClubs/Card';
 import Api from '../components/Api';
+
+const Card = lazy(() => import("../components/lesClubs/Card"));
+const Filter = lazy(() => import("../components/lesJoueurs/DropdownFilter"));
 
 function Players() {
     const refFilterClub = useRef()
@@ -65,29 +66,29 @@ function Players() {
                 </div>
             </div>
 
-            <div className="container mt-5">
+            <Suspense fallback={<>Chargement...</>}>
+                <div className="container mt-5">
+                    <div className="filters d-flex justify-content-center">
+                        <Filter
+                            sonRef={refFilterClub}
+                            nameFilter="pays"
+                            id="idPays"
+                            columnFilterInDB="nom"
+                            selectedDropdownValue={filters.pays}
+                            contentDropdown={lesPays}
+                            filters={filters}
+                            setFilters={setFilters}
+                        />
+                    </div>
 
-                <div className="filters d-flex justify-content-center">
-
-                    <Filter
-                        sonRef={refFilterClub}
-                        nameFilter="pays"
-                        id="idPays"
-                        columnFilterInDB="nom"
-                        selectedDropdownValue={filters.pays}
-                        contentDropdown={lesPays}
-                        filters={filters}
-                        setFilters={setFilters}
-                    />
-
+                    <div className="d-flex flex-wrap justify-content-center mt-5">
+                        {(lesClubs.length > 0) && lesClubs.map((club, key) =>
+                            <Card key={key} setSwap={setSwap} leClub={club} />
+                        )}
+                    </div>
                 </div>
+            </Suspense>
 
-                <div className="d-flex flex-wrap justify-content-center mt-5">
-                    {(lesClubs.length > 0) && lesClubs.map((club, key) =>
-                        <Card key={key} setSwap={setSwap} leClub={club} />
-                    )}
-                </div>
-            </div>
         </div>
     )
 }

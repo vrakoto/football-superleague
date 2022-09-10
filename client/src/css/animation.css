@@ -16,3 +16,13 @@
     0%   {transform: translateX(-100%); opacity: 0;}
     100% {transform: translateX(0); opacity: 1;}
 }
+
+
+.switchPage {
+    animation: moving 1s forwards;
+}
+
+@keyframes moving {
+    0%   {transform: translateY(0px);}
+    100% { transform: translateX(100%); opacity: 0;}
+}

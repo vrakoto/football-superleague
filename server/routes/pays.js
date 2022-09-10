@@ -24,14 +24,20 @@ router.get('/pays', async (req, res) => {
 // Récupère tous les clubs d'un pays
 router.get('/clubs', async (req, res) => {
     const {idPays} = req.query
-    let filter = {}
+    let filter = {
+        include: {
+            model: Pays,
+            attributes: ['nom'],
+        },
+    }
     if (idPays != 'all') {
-        filter = { where: { PayId: idPays } }
+        filter.where = { PayId: idPays }
     }
 
     await Club.findAll(filter).then((datas) => {
         return res.json(datas)
     }).catch((error) => {
+        console.log(error);
         if (error) return res.send({error: `Echec lors de la tentative de récupération des clubs pour le pays ${idPays}`})
     })
 });

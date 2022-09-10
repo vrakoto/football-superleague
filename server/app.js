@@ -8,6 +8,7 @@ const app = express(),
       joueurRouter = require('./routes/joueur'),
       paysRouter = require('./routes/pays'),
       positionRouter = require('./routes/position'),
+      authRouter = require('./routes/authentification'),
       session = require('express-session')
 
 app.use(bodyParser.json());
@@ -36,6 +37,8 @@ app.use('/pays/', cors(), paysRouter);
 // Route position
 app.use('/position/', cors(), positionRouter);
 
+// Route auth
+app.use('/auth/', cors(), authRouter);
 
 app.listen(port, () => {
     console.log(`Server listening on the port:${port}`);

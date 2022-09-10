@@ -1,8 +1,9 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, lazy, Suspense } from 'react'
 import '../css/players.css'
-import Table from '../components/lesJoueurs/Table';
-import Filter from '../components/lesJoueurs/DropdownFilter';
 import Api from '../components/Api';
+
+const Table = lazy(() => import("../components/lesJoueurs/Table"));
+const Filter = lazy(() => import("../components/lesJoueurs/DropdownFilter"));
 
 function Players() {
     const refFilterClub = useRef()
@@ -79,7 +80,7 @@ function Players() {
     }
 
     return (
-        <div className={swap ? 'selectedPlayer' : ''}>
+        <div className={swap ? 'switchPage' : ''}>
             <div className="container-fluid d-flex justify-content-center align-items-center banner">
                 <div className="container d-flex content">
                     <h1>Les joueurs</h1>
@@ -87,51 +88,51 @@ function Players() {
                 </div>
             </div>
 
-            <div className="container mt-5">
+            <Suspense fallback={<>Chargement...</>}>
+                <div className="container mt-5">
+                    <div className="filters d-flex justify-content-center">
+                        <Filter
+                            sonRef={refFilterClub}
+                            nameFilter="club"
+                            id="idClub"
+                            columnFilterInDB="nom"
+                            selectedDropdownValue={filters.club}
+                            contentDropdown={lesClubs}
+                            filters={filters}
+                            setFilters={setFilters}
+                        />
 
-                <div className="filters d-flex justify-content-center">
+                        <Filter
+                            sonRef={refFilterPosition}
+                            nameFilter="position"
+                            id="idPosition"
+                            columnFilterInDB="nom"
+                            selectedDropdownValue={filters.position}
+                            contentDropdown={lesPositions}
+                            filters={filters}
+                            setFilters={setFilters}
+                        />
 
-                    <Filter
-                        sonRef={refFilterClub}
-                        nameFilter="club"
-                        id="idClub"
-                        columnFilterInDB="nom"
-                        selectedDropdownValue={filters.club}
-                        contentDropdown={lesClubs}
-                        filters={filters}
-                        setFilters={setFilters}
-                    />
+                        <Filter
+                            sonRef={refFilterPays}
+                            nameFilter="pays"
+                            id="idPays"
+                            columnFilterInDB="nom"
+                            selectedDropdownValue={filters.pays}
+                            contentDropdown={lesPays}
+                            filters={filters}
+                            setFilters={setFilters}
+                        />
+                    </div>
 
-                    <Filter
-                        sonRef={refFilterPosition}
-                        nameFilter="position"
-                        id="idPosition"
-                        columnFilterInDB="nom"
-                        selectedDropdownValue={filters.position}
-                        contentDropdown={lesPositions}
-                        filters={filters}
-                        setFilters={setFilters}
-                    />
-
-                    <Filter
-                        sonRef={refFilterPays}
-                        nameFilter="pays"
-                        id="idPays"
-                        columnFilterInDB="nom"
-                        selectedDropdownValue={filters.pays}
-                        contentDropdown={lesPays}
-                        filters={filters}
-                        setFilters={setFilters}
-                    />
-
+                    <div className="mt-5">
+                        {(lesJoueurs.length > 0) ? (
+                            <Table datas={lesJoueurs} swap={swap} setSwap={setSwap} />
+                        ) : 'Aucun joueur'}
+                    </div>
                 </div>
+            </Suspense>
 
-                <div className="mt-5">
-                    {(lesJoueurs.length > 0) ? (
-                        <Table datas={lesJoueurs} swap={swap} setSwap={setSwap} />
-                    ) : 'Aucun joueur'}
-                </div>
-            </div>
         </div>
     )
 }
