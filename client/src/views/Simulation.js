@@ -51,10 +51,8 @@ function Simulation() {
     }
 
     useEffect(() => {
-        return () => {
-            getLesClubs()
-            getTousLesClubs()
-        }
+        getLesClubs()
+        getTousLesClubs()
     }, [])
 
     const draw = () => {

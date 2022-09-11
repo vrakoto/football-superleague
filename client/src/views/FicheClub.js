@@ -36,10 +36,8 @@ function FicheClub() {
     }
 
     useEffect(() => {
-        return () => {
-            getLeClub()
-            getLesJoueursDuClub()
-        }
+        getLeClub()
+        getLesJoueursDuClub()
     }, [])
 
     return (

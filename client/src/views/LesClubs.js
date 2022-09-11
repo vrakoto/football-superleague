@@ -41,10 +41,7 @@ function Players() {
 
     // charge les club et joueurs dans un premier temps
     useEffect(() => {
-        return () => {
-            getLesPays();
-            getLesClubs();
-        }
+        getLesPays()
     }, [])
 
     // Filtre d'un ou plusieurs club(s) dynamiquement 

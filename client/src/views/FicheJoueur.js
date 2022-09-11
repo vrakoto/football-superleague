@@ -16,7 +16,7 @@ function FicheJoueur() {
     }
 
     useEffect(() => {
-        return () => getLeJoueur()
+        getLeJoueur()
     }, [])
 
     return (
