@@ -127,7 +127,7 @@ function Players() {
 
                     <div className="mt-5">
                         {(lesJoueurs.length > 0) ? (
-                            <Table datas={lesJoueurs} swap={swap} setSwap={setSwap} />
+                            <Table datas={lesJoueurs} setDatas={setLesJoueurs} swap={swap} setSwap={setSwap} />
                         ) : 'Aucun joueur'}
                     </div>
                 </div>

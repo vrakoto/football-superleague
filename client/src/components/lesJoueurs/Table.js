@@ -1,8 +1,15 @@
 import '../../css/components/tableJoueurs.css'
 import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
-function Table({ datas, setSwap }) {
+function Table({ datas, setDatas, setSwap }) {
     const navigate = useNavigate();
+
+    const sortDatas = (champ) => {
+        const sorting = [].concat(datas)
+            .sort((a, b) => a[champ] > b[champ] ? 1 : -1)
+        setDatas(sorting)
+    }
 
     /* Only onHover */
     const addBackground = (couleur, e) => {
@@ -24,10 +31,10 @@ function Table({ datas, setSwap }) {
             <table className="table">
                 <thead>
                     <tr className="table-secondary">
-                        <th scope="col">Joueur</th>
-                        <th scope="col">Position</th>
-                        <th scope="col">Club</th>
-                        <th scope="col">Nationalité</th>
+                        <th scope="col" onClick={() => sortDatas('nom')}>Joueur</th>
+                        <th scope="col" onClick={() => sortDatas('PositionId')}>Position</th>
+                        <th scope="col" onClick={() => sortDatas('ClubId')}>Club</th>
+                        <th scope="col" onClick={() => sortDatas('pays')}>Pays</th>
                     </tr>
                 </thead>
                 <tbody>

@@ -1,6 +1,6 @@
 .groupeCard {
     width: 320px;
-    height: 380px;
+    height: 320px;
     animation: appear 1s forwards;
 }
 @keyframes appear {

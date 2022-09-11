@@ -7,7 +7,14 @@ const Pays = require('../models/Pays');
 
 // Récupère tous les clubs
 router.get('/clubs', async (req, res) => {
-    await Club.findAll().then((datas) => {
+    let params = {
+        include: {
+            model: Pays,
+            attributes: ['nom'],
+        }
+    }
+
+    await Club.findAll(params).then((datas) => {
         return res.json(datas)
     }).catch((error) => {
         if (error) return res.send({error: `Echec lors de la tentative de récupération des clubs`})

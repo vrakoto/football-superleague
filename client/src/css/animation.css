@@ -9,10 +9,9 @@
 }
 
 .animation2 {
-    animation: swap2 2s forwards;
+    animation: animation2 2s forwards;
 }
-
-@keyframes swap2 {
+@keyframes animation2 {
     0%   {transform: translateX(-100%); opacity: 0;}
     100% {transform: translateX(0); opacity: 1;}
 }
@@ -21,8 +20,24 @@
 .switchPage {
     animation: moving 1s forwards;
 }
-
 @keyframes moving {
     0%   {transform: translateY(0px);}
     100% { transform: translateX(100%); opacity: 0;}
+}
+
+.drawing {
+    animation: drawing 1s forwards;
+}
+@keyframes drawing {
+    0%   {transform: translateY(100%);}
+    100% { transform: translateX(0);}
+}
+
+
+.displayDatas {
+    animation: displayDatas 1s forwards;
+}
+@keyframes displayDatas {
+    0%   {transform: translateX(-100%); opacity: 0;}
+    100% {transform: translateX(0); opacity: 1;}
 }

@@ -58,7 +58,7 @@ function Players() {
     }, [filters])
 
     return (
-        <div className={swap ? 'selectedPlayer' : ''}>
+        <div className={swap ? 'switchPage' : ''}>
             <div className="container-fluid d-flex justify-content-center align-items-center banner">
                 <div className="container d-flex content">
                     <h1>Les Clubs</h1>
@@ -81,7 +81,7 @@ function Players() {
                         />
                     </div>
 
-                    <div className="d-flex flex-wrap justify-content-center mt-5">
+                    <div className="displayDatas d-flex flex-wrap justify-content-center mt-5">
                         {(lesClubs.length > 0) && lesClubs.map((club, key) =>
                             <Card key={key} setSwap={setSwap} leClub={club} />
                         )}

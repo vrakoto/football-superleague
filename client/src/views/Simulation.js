@@ -5,6 +5,9 @@ const Groupes = lazy(() => import("../components/simulation/Groupes"))
 function Simulation() {
     const [isFilled, setIsFilled] = useState(false)
     const [swap, setSwap] = useState(false)
+    const [lesClubs, setLesClubs] = useState({})
+    const [random, setRandom] = useState({})
+    const [blink, setBlink] = useState(false)
 
     const listeChampionnats = {
         "Allemagne": [],
@@ -12,6 +15,14 @@ function Simulation() {
         "Espagne": [],
         "France": [],
         "Italie": []
+    }
+
+    const listeGroupes = {
+        "A": [],
+        "B": [],
+        "C": [],
+        "D": [],
+        "E": []
     }
 
     const [lesChampionnats, setLeChampionnat] = useState(listeChampionnats)
@@ -31,19 +42,67 @@ function Simulation() {
         })
     }
 
+    const getTousLesClubs = () => {
+        Api.get('/club/clubs').then((response) => {
+            setLesClubs(response.data)
+        }).catch((err) => {
+            console.log(err);
+        })
+    }
+
     useEffect(() => {
         return () => {
             getLesClubs()
+            getTousLesClubs()
         }
     }, [])
 
+    const draw = () => {
+        function shuffle(array) {
+            let currentIndex = array.length, randomIndex;
+          
+            while (currentIndex !== 0) {
+              randomIndex = Math.floor(Math.random() * currentIndex);
+              currentIndex--;
+              [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+            }
+          
+            return array;
+        }
+        
+        function* chunks(arr, n) {
+            for (let i = 0; i < arr.length; i += n) {
+              yield arr.slice(i, i + n);
+            }
+        }
+        
+        setBlink(true)
+        setRandom([...chunks(shuffle(lesClubs), 5)])
+    }
+
     return (
-        <div className={`d-flex flex-wrap justify-content-evenly  ${swap ? 'switchPage' : ''}`}>
-            <Suspense fallback={<div>Chargement...</div>}>
-                {isFilled && Object.keys(lesChampionnats).length > 0 && Object.getOwnPropertyNames(lesChampionnats).map((lePays, key) => 
+        <div className={`${swap ? 'switchPage' : ''} mt-5`}>
+
+            <div className="d-flex justify-content-center">
+                <button className="btn btn-primary" onClick={draw}>Simuler les groupes</button>
+                <button className="btn btn-success">Commencer les matchs</button>
+            </div>
+
+            <div className={`d-flex flex-wrap justify-content-evenly`}>
+                <Suspense fallback={<div>Chargement...</div>}>
+                {isFilled && Object.getOwnPropertyNames(lesChampionnats).map((lePays, key) => 
                     <Groupes key={key} setSwap={setSwap} titre={lePays} lesClubs={lesChampionnats[lePays]} />
                 )}
             </Suspense>
+            </div>
+
+            <div className={`d-flex flex-wrap justify-content-evenly`}>
+                <Suspense fallback={<div>Chargement...</div>}>
+                    {Object.getOwnPropertyNames(listeGroupes).map((nom, key) => 
+                        <Groupes key={key} blink={blink} setBlink={setBlink} setSwap={setSwap} titre={nom} lesClubs={(Object.keys(random).length > 0) ? random[key] : ''} />
+                    )}
+                </Suspense>
+            </div>
         </div>
     )
 }

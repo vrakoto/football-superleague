@@ -6,7 +6,6 @@ import 'bootstrap/dist/js/bootstrap.bundle'
 
 import Body from '../components/Body'
 
-import Accueil from '../views/Accueil'
 import Connexion from '../views/Connexion';
 import LesJoueurs from '../views/LesJoueurs';
 import FicheJoueur from '../views/FicheJoueur';
@@ -20,10 +19,9 @@ function Routeur() {
         <BrowserRouter>
             <Body>
                 <Routes>
-                    <Route path="/" element={<Accueil />} />
+                    <Route path="/" element={<LesClubs />} />
                     <Route path="/joueurs" element={<LesJoueurs />} />
                     <Route path="/joueur/:userId" element={<FicheJoueur />} />
-                    <Route path="/clubs" element={<LesClubs />} />
                     <Route path="/club/:clubId" element={<FicheClub />} />
                     <Route path="/simulation" element={<Simulation />} />
                     <Route path="/connexion" element={<Connexion />} />

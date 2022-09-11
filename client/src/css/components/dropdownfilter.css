@@ -30,6 +30,7 @@
     list-style-type: none;
     color: #333;
     width: 100%;
+    z-index: 999;
 }
 
 .listClubs li:not(:first-child) {

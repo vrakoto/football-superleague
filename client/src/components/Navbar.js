@@ -23,16 +23,13 @@ function Navbar() {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <Link path="/" title="Accueil" />
+                            <Link path="/" title="Les Clubs" />
                         </li>
                         <li className="nav-item">
                             <Link path="/joueurs" title="Les Joueurs" />
                         </li>
                         <li className="nav-item">
-                            <Link path="/clubs" title="Les Clubs" />
-                        </li>
-                        <li className="nav-item">
-                            <Link path="/simulation" title="Simuler une partie" />
+                            <Link path="/simulation" title="Simuler les poules" />
                         </li>
                     </ul>
                     <form className="d-flex" role="search">
